@@ -84,13 +84,10 @@ const cotizarLenteNegativo = (graduacion) => {
     return precio
 }
 
-const verificaPositivo = (graduacion) => {
-    if (graduacion >= 0) {
-        return true
-    } else {
-        return false
-    }
-}
+//verifica si el lente es positivo o negativo
+const verificaPositivo = (graduacion) => graduacion >= 0 
+
+
 //Cotiza e imprime resultado
 const cotizarAnteojos = (lenteIzq, lenteDer) => {
 
