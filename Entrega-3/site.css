@@ -1,0 +1,38 @@
+*, *::after, *::before{
+box-sizing: border-box;
+}
+
+body,html{
+    font-size:16px;
+    margin:0;
+    padding:0;
+}
+p{
+    font-weight: 500;
+}
+
+header{
+    padding:1rem;
+    text-align:center;
+    background:rgba(16, 46, 214, 0.5);
+    color:#ffffff;
+}
+.container{
+    width:100%;
+    max-width: 1200px;
+    padding:1rem;
+}
+
+/*Helpers*/
+.w-100{
+    width:100%;
+}
+.d-flex{
+    display:flex;
+}
+.align-center{
+    align-items:center
+}
+.justify-content-center{
+    justify-content: center;
+}
