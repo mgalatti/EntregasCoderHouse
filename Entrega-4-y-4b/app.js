@@ -8,7 +8,7 @@ const iva = 1.21
 
 //Valida que sean numeros 
 function validarDatos(numI, ejeI, numD, ejeD) {
-    if ((isNaN(numI) || isNaN(ejeI) || isNaN(numD) || isNaN(ejeD)) && (numI === '' || ejeI === '' || numD === '' || ejeD === '')) {
+    if (isNaN(numI) || isNaN(ejeI) || isNaN(numD) || isNaN(ejeD)) {
         return false
     }
     return true
