@@ -8,7 +8,7 @@ const iva = 1.21
 
 //Valida que sean numeros 
 function validarDatos(numI, ejeI, numD, ejeD) {
-    if (isNaN(numI) || isNaN(ejeI) || isNaN(numD) || isNaN(ejeD)) {
+    if ((isNaN(numI) || isNaN(ejeI) || isNaN(numD) || isNaN(ejeD)) && (numI === '' || ejeI === '' || numD === '' || ejeD === '')) {
         return false
     }
     return true
@@ -27,10 +27,21 @@ const imprimirEnPantalla = (oiGrad, oiEje, odGrad, odEje) => {
 function inicializarPrograma() {
 
     //pide datos
-    const oiGraduacion = Number(prompt('Ingrese graduacion Ojo Izquierdo'))
-    const oiEje = Number(prompt('Ingrese eje Ojo Izquierdo'))
-    const odGraduacion = Number(prompt('Ingrese graduacion Ojo Izquierdo'))
-    const odEje = Number(prompt('Ingrese eje Ojo Izquierdo'))
+    let oiGraduacion = prompt('Ingrese graduacion Ojo Izquierdo')
+    let oiEje = prompt('Ingrese eje Ojo Izquierdo')
+    let odGraduacion = prompt('Ingrese graduacion Ojo Izquierdo')
+    let odEje = prompt('Ingrese eje Ojo Izquierdo')
+
+    //valida que los campos esten llenos y los parsea
+    if(oiGraduacion === '' || odGraduacion === '' || oiEje === '' || odEje === ''){
+        alert('Por favor ingrese todos los valores')
+        inicializarPrograma()
+    }else{
+        oiGraduacion = Number(oiGraduacion)
+        oiEje = Number(oiEje)
+        odGraduacion = Number(odGraduacion)
+        odEje = Number(odEje)
+    }
 
     //si validarDatos es true, continua, sino vuelve a pedir datos
     if (validarDatos(oiGraduacion, oiEje, odGraduacion, odEje)) {
