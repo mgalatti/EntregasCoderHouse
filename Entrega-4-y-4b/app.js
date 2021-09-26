@@ -29,8 +29,8 @@ function inicializarPrograma() {
     //pide datos
     let oiGraduacion = prompt('Ingrese graduacion Ojo Izquierdo')
     let oiEje = prompt('Ingrese eje Ojo Izquierdo')
-    let odGraduacion = prompt('Ingrese graduacion Ojo Izquierdo')
-    let odEje = prompt('Ingrese eje Ojo Izquierdo')
+    let odGraduacion = prompt('Ingrese graduacion Ojo Derecho')
+    let odEje = prompt('Ingrese eje Ojo Derecho')
 
     //valida que los campos esten llenos y los parsea
     if(oiGraduacion === '' || odGraduacion === '' || oiEje === '' || odEje === ''){
