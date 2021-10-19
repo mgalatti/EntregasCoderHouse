@@ -6,7 +6,7 @@ const odEjeHtml = document.getElementById('js-odEje')
 const precioTotalHtml = document.getElementById('jsPrecioTotal')
 const listaAnteojos = document.getElementById('listaAnteojos')
 const btnNuevaCotizacion = document.getElementById('js-agregarCotizacion')
-const iva = 1.21
+const iva = 1.
 
 
 class Anteojo {

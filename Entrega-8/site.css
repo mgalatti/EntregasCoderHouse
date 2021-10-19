@@ -1,0 +1,54 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+    }
+    
+    body,html{
+        font-size:16px;
+        font-family: 'Roboto' sans-serif;
+        margin:0;
+        padding:0;
+    }
+    
+    header{
+        padding:1rem;
+        text-align:center;
+        background:rgba(16, 46, 214, 0.5);
+        color:#ffffff;
+    }
+    .container{
+        width:100%;
+        max-width: 1200px;
+        padding:1rem;
+    }
+    .datos-graduacion{
+        display:flex;
+        justify-content: space-around;
+    }
+    .precio-total{
+        padding:1rem;
+        background-color: lightcoral;
+        color:#ffffff
+    }
+    /*Helpers*/
+    .text-center{
+        text-align:center;
+    }
+    .w-100{
+        width:100%;
+    }
+    .d-flex{
+        display:flex;
+    }
+    .align-center{
+        align-items:center
+    }
+    .justify-content-center{
+        justify-content: center;
+    }
+    .w-100{
+        width:100%;
+    }
+    .text-center{
+        text-align: center;
+    }
+    
