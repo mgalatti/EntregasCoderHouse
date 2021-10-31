@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Proyecto final entrega 2
+    </title>
+    <link rel="stylesheet" href="site.css">
+</head>
+
+<body>
+    <header>
+        <h1>Óptica Online</h1>
+    </header>
+    <section>
+        <div class="container ultimas-compras">
+            <h4>Compras anteriores</h4>
+            <ul id="ultimasCompras"></ul>
+        </div>
+    </section>
+    <hr>
+    <section class="container">
+        <h2>Elegir nuevo anteojo</h2>
+
+        <form>
+            <hr>
+            <div class="form-materiales">
+                <span class="span-title">Elija color</span>
+                <select id="selectColor" required>
+                    <option disabled selected value="0">Seleccione color</option>
+                    <option value="negro">Negro</option>
+                    <option value="marron">Marron</option>
+                    <option value="violeta">Violeta</option>
+                    <option value="rojo">Rojo</option>
+                    <option value="blanco">Blanco</option>
+                </select>
+                <span class="span-title">Elija Material</span>
+                <select id="selectMaterial" required>
+                    <option disabled selected value="0">Seleccione un material</option>
+                    <option value="plastico">Plástico</option>
+                    <option value="metal">Metal</option>
+                    <option value="madera">Madera</option>
+                </select>
+            </div>
+            <div class="form-ojos">
+                <div>
+                    <h3>Ojo Izquierdo</h3>
+                    <label for="oiGraduacionInput">Graduacion OI:</label>
+                    <input id="oiGraduacionInput" autocomplete="off" type="number" required
+                        placeholder="Ingrese graduacion" />
+                    <label for="oiEjeInput">Eje OI:</label>
+                    <input id="oiEjeInput" autocomplete="off" type="number" required placeholder="Ingrese Eje" />
+                </div>
+                <div>
+                    <h3>Ojo Derecho</h3>
+                    <label for="odGraduacionInput">Graduacion OD:</label>
+                    <input id="odGraduacionInput" autocomplete="off" type="number" required
+                        placeholder="Ingrese graduacion" />
+                    <label for="odEjeInput">Eje OD:</label>
+                    <input id="odEjeInput" autocomplete="off" type="number" required placeholder="Ingrese Eje" />
+                </div>
+            </div>
+
+            <div class="text-right">
+                <button id="agregarAnteojoBTN" type="submit">Agregar Anteojo</button>
+            </div>
+            <hr>
+        </form>
+    </section>
+
+    <section>
+        <div class="container">
+            
+            
+            <h3>Canasto de Anteojos</h3>
+            <button onClick='sortByPrice(anteojos, "asc")'>Ordenar precio ascendente</button>
+            <button onClick='sortByPrice(anteojos, "des")'>Ordenar precio descendente</button>
+            <button onClick='sortAlfabeticamente(anteojos, "color")'>Ordenar color alfabet.</button>
+            <button onClick='sortAlfabeticamente(anteojos, "material")'>Ordenar material alfabet</button>
+
+            <ul id="listaAnteojos">
+
+            </ul>
+            <div class="comprar-btn text-right">
+            <button class="btn-comprar" type="button" disabled>Comprar (soon)</button>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section class="container" id="ultimo-ingreso">
+
+        <div class="w-100 text-center">
+            <h2>Último ingreso</h2>
+        </div>
+        <div class="datos-graduacion">
+            <div>
+                <h3>Ojo Izquierdo</h3>
+                <p>Graduación: <span id="js-oiGraduacion"></span></p>
+                <p>Eje: <span id="js-oiEje"></span>°</p>
+            </div>
+
+            <div>
+                <h3>Ojo Derecho</h3>
+                <p>Graduación: <span id="js-odGraduacion"></span></p>
+                <p>Eje: <span id="js-odEje"></span>°</p>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="container cotizacion text-center" id="cotizacion">
+        <h4 class="precio-total">El precio total con IVA es: $<span id="jsPrecioTotal"></span></h4>
+    </section>
+   
+
+
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>
