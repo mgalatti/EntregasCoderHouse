@@ -27,7 +27,8 @@ const agregarAnteojoBTN = document.getElementById('agregarAnteojoBTN')
 
 //mapeo
 const localStorage = window.localStorage
-const anteojos = JSON.parse(localStorage.getItem('Anteojos')) || [];
+
+const anteojos = JSON.parse(localStorage.getItem("Anteojos")) || [];
 const ultimasCompras = dataAnteojos;
 
 // Array inputs
@@ -112,6 +113,7 @@ const imprimirUltimaCarga = (oiGrad, oiEje, odGrad, odEje) => {
     odGradHtml.textContent = odGrad
     odEjeHtml.textContent = odEje
 }
+
 function imprimirUltimasCompras() {
     const ul = ultimasComprasUl
     ultimasCompras?.forEach((anteojo) => {
@@ -139,16 +141,17 @@ function imprimirListaAnteojos() {
 
 // Validacion on blur
 arrInputs.forEach((input) => {
-    input.addEventListener('blur', validateInputs)
+    // input.addEventListener('blur', validateInputs)
+    $(input).on('blur', validateInputs)
 })
 
 function validateInputs() {
     if (this.value === '' || this.value === '0') {
-        this.classList.remove('valid')
-        this.classList.add('invalid')
+        $(this).removeClass('valid')
+        $(this).addClass('invalid')
     } else {
-        this.classList.remove('invalid')
-        this.classList.add('valid')
+        $(this).removeClass('invalid')
+        $(this).addClass('valid')
     }
 }
 
@@ -171,12 +174,11 @@ function inicializarPrograma(ev) {
     // valida que los campos esten llenos y los parsea
     if (oiGraduacion === '' || odGraduacion === '' || oiEje === '' || odEje === '' || color === '' || material === '') {
 
-        arrInputs.forEach((campo, i) => {
+        arrInputs.forEach((campo) => {
             if (campo.value === '' || campo.value === '0') {
-                campo.classList.add('invalid')
-
+                $(campo).addClass('invalid')
             } else {
-                campo.classList.add('valid')
+                $(campo).addClass('valid')
             }
 
         })
@@ -204,8 +206,8 @@ function inicializarPrograma(ev) {
     }
 
     // muestra ultimo registro y cotizacion
-    ultimoIngresoDiv.style.display = 'block'
-    cotizacionDiv.style.display = 'block'
+    $(ultimoIngresoDiv).css('display', 'block')
+    $(cotizacionDiv).css('display', 'block')
 
     imprimirListaAnteojos()
 
@@ -291,36 +293,26 @@ function crearAnteojo(parLentes, color, material, precioTotal) {
     localStorage.setItem('Anteojos', JSON.stringify(anteojos))
 }
 
-//btns sort/
-const btnASC = document.getElementById('btnASC')
-const btnDES = document.getElementById('btnDES')
-const btnColor = document.getElementById('btnColor')
-const btnMaterial = document.getElementById('btnMaterial')
-
-btnASC.addEventListener('click', sortByPrice);
-btnDES.addEventListener('click', sortByPrice);
-btnColor.addEventListener('click', sortAlfabeticamente);
-btnMaterial.addEventListener('click', sortAlfabeticamente)
-
-
-
-
+$('#btnASC').on('click', sortByPrice)
+$('#btnDES').on('click', sortByPrice)
+$('#btnColor').on('click', sortAlfabeticamente)
+$('#btnMaterial').on('click', sortAlfabeticamente)
 
 //  Ordenar array de anteojos por precio
-function sortByPrice(e) {
-    const tipo = e.target.getAttribute('data-sort')
-    if (tipo === 'asc') {
+function sortByPrice() {
+    const tipo = $(this).attr("data-sort")
+    if (tipo === 'ASC') {
         anteojos.sort((a, b) => a.precio - b.precio)
     }
-    else if (tipo === 'des') {
+    else if (tipo === 'DES') {
         anteojos.sort((a, b) => b.precio - a.precio)
     }
     return imprimirListaAnteojos()
 }
 // Ordenar array de anteojos alfabeticamente segun propiedad
-function sortAlfabeticamente(e) {
-    const propiedad = e.target.getAttribute('data-sort')
-
+function sortAlfabeticamente() {
+    const propiedad = $(this).attr("data-sort")
+    console.log(propiedad)
     if (propiedad === 'color') {
         anteojos.sort((a, b) => {
             let colorA = a.color.toLowerCase();
@@ -350,6 +342,7 @@ function sortAlfabeticamente(e) {
         })
         return imprimirListaAnteojos()
     }
+
 }
 
 function addEventListeners() {
@@ -358,6 +351,7 @@ function addEventListeners() {
         item.addEventListener('click', removeAnteojo)
     }
 }
+
 
 function removeAnteojo() {
     const btn = this
@@ -370,9 +364,9 @@ function removeAnteojo() {
     itemLi.remove()
     localStorage.setItem('Anteojos', JSON.stringify(anteojos))
 };
-// Event Listeners
 
-agregarAnteojoBTN.addEventListener('click', inicializarPrograma)
+// Event Listeners
+$(agregarAnteojoBTN).on('click', inicializarPrograma)
 
 imprimirListaAnteojos()
 imprimirUltimasCompras()

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        Proyecto final entrega 2
+        Proyecto jQuery
     </title>
     <link rel="stylesheet" href="site.css">
 </head>
@@ -73,11 +73,11 @@
 
     <section>
         <div class="container">
-            
-            
+
+
             <h3>Canasto de Anteojos</h3>
-            <button id="btnASC" data-sort="asc">Ordenar precio ascendente</button>
-            <button id="btnDES" data-sort="des">Ordenar precio descendente</button>
+            <button id="btnASC" data-sort="ASC">Ordenar precio ascendente</button>
+            <button id="btnDES" data-sort="DES">Ordenar precio descendente</button>
             <button id="btnColor" data-sort="color">Ordenar color alfabet.</button>
             <button id="btnMaterial" data-sort="material">Ordenar material alfabet</button>
 
@@ -85,7 +85,7 @@
 
             </ul>
             <div class="comprar-btn text-right">
-            <button class="btn-comprar" type="button" disabled>Comprar (soon)</button>
+                <button class="btn-comprar" type="button" disabled>Comprar (soon)</button>
             </div>
         </div>
     </section>
@@ -114,9 +114,10 @@
     <section class="container cotizacion text-center" id="cotizacion">
         <h4 class="precio-total">El precio total con IVA es: $<span id="jsPrecioTotal"></span></h4>
     </section>
-   
 
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script type="module" src="app.js"></script>
 </body>
 
