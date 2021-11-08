@@ -1,0 +1,307 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+body, html {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+header {
+    padding: 1rem;
+    text-align: center;
+    background: rgba(16, 46, 214, 0.5);
+    color: #ffffff;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0
+}
+
+select, input {
+    padding: 0.5rem;
+}
+
+span.error {
+    color: red;
+    font-weight: bold;
+    margin: 1rem auto;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 1rem;
+    margin: 0 auto;
+}
+
+#cotizacion, #ultimo-ingreso {
+    display: none;
+}
+
+.datos-graduacion {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.precio-total {
+    padding: 1rem;
+    background-color: rgb(198, 252, 243);
+    width: 100%;
+    text-align: center;
+}
+.form-materiales{
+    display:flex;
+}
+
+form .inputs{
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+}
+form .inputs input{
+    margin-bottom:.5rem;
+}
+.form-ojos {
+    display: flex;
+    margin-top: 1rem;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+}
+
+form {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+form select, form input {
+    margin-right: 0.5rem;
+    border-radius: 5px;
+    padding: 0.5rem;
+    border-color: #8585858c;
+}
+
+form input.invalid, form select.invalid {
+    border: 1px solid red;
+}
+
+form input.valid, form select.valid {
+    border: 1px solid green;
+}
+
+form button {
+    margin-top: 0.7rem;
+    padding: 1rem;
+    background: lightcoral;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+.span-title, form label {
+    font-size: .8rem;
+    font-weight: 400;
+    opacity: 0.7;
+    margin-right: 0.5rem;
+    margin-bottom: .5rem;
+}
+
+.text-agregado {
+    color: rgb(255, 86, 86);
+    display: block;
+}
+
+.borrarItemBtn {
+    font-size: .7rem;
+    display: block;
+    cursor: pointer;
+    margin: 0 auto;
+    color: red;
+    border: none;
+    background: transparent;
+}
+
+ul li {
+    line-height: 2rem;
+}
+
+.ultimas-compras {
+    opacity: 0.5;
+    font-size: 0.9rem;
+}
+
+.ultimas-compras ul {
+    display: flex;
+    padding-left: 0
+}
+
+.ultimas-compras ul li {
+    margin-right: 1rem;
+    background: #fff;
+    border-radius: 20px;
+    padding: 0 1rem;
+    box-shadow: 0px 3px 10px;
+}
+
+.ultimas-compras .cart-item div {
+    display: flex;
+    align-items: center;
+    gap: 0 1rem;
+    text-transform: capitalize;
+}
+
+.carrito-wrapper ul li {
+    background: #fff;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    padding: 0 1rem .5rem;
+    text-transform: capitalize;
+}
+
+.carrito-wrapper h3 {
+    color: #fff;
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+.carrito-wrapper p {
+    color: rgb(50, 50, 50)
+}
+
+.carrito-wrapper span {
+    color: rgb(6, 6, 6);
+    margin-left: auto;
+}
+
+.carrito-wrapper .cart-item div {
+    display: flex;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.btn-comprar {
+    margin-top: 0.7rem;
+    padding: 1rem;
+    background: rgb(213, 64, 64);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-comprar:disabled {
+    background: gray;
+    opacity: 0.5;
+}
+
+.carrito-btn-wrapper {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 3rem;
+    right: 4rem;
+    line-height: 3.7rem;
+    border-radius: 50%;
+    background: rgb(213 64 64);
+    transition: all .3s ease-in-out;
+}
+
+.carrito-btn-wrapper:hover {
+    transform: scale(1.1);
+}
+
+#carritoBtn {
+    cursor: pointer;
+    border: none;
+    font-size: 1.4rem;
+    background: none;
+    padding: .7rem;
+    color: #ffffff;
+    transition: all .2s ease-in-out;
+    position: relative;
+}
+
+#carritoBtn.hasItems:after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgb(22, 255, 76);
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.carrito-wrapper {
+    background: rgb(87, 105, 205);
+    padding: 1rem;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    position: fixed;
+    right: -100vw;
+    max-width: 400px;
+    opacity: 0;
+    transition: all .4s ease-in-out;
+    height: auto;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    overflow-y: scroll;
+}
+
+.carrito-wrapper #listaAnteojos {
+    max-height: 100%;
+    overflow-y: scroll;
+}
+
+.carrito-wrapper.open {
+    opacity: 1;
+    right: 0;
+}
+
+.carrito-wrapper:not(.hasItems) .botones-sort {
+    display: none;
+}
+
+.comprar-btn {
+    margin-top: auto;
+}
+
+/*Helpers*/
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
